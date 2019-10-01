@@ -1,0 +1,110 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool alive = true;// 1 байт
+            byte bit = 1;// 1 байт
+            sbyte sbit = -1;// 1 байт
+            short sh = 1;// 2 байта
+            ushort ush = 1;// 2 байта
+            int a = 1;// 4 байта
+            uint b = 1U;// 4 байта
+            long la = 131237123L;// 8 байт
+            ulong ula = 231414UL;// 8 байт
+            double d = 1.14;// 8 байт
+            float f = 10.0F; // 4 байта
+            decimal dec = 234.34M;//16 байт
+            char ch = 'A';// 2 байта
+            string hello = "Hello"; //
+            object o = 1;
+            object i = 3.14;
+            object n = "Hello World";//8 байт
+
+            object ob = a;
+            int y = (int)ob;
+
+            ///////////////////////////////////////////////////
+            
+            Int32 i32 = 30;
+            Int64 i64 = i32;
+            Single s = i32;
+            Double D = i32;
+           
+            Byte by = (Byte)i32;
+            Int16 v = (Int16)s;
+
+            ////////////////////////////////////////////////////
+
+            string name = "Ilya";
+            string output= String.Format("My name is {0}", name);
+            Console.WriteLine(output);
+            Console.WriteLine($"My name is {name}");
+           
+            ///////////////////////////////////////////////////
+            string str = "privet";
+            string str_2 = "poka";                                                         
+            Console.WriteLine(string.Compare(str, str_2));
+            //s1 == s2 returns 0
+            //s1 > s2 returns 1
+            //s1 < s2 returns - 1                                                                            
+            Console.WriteLine(str.Contains(str_2));
+            //true
+            //false
+            Console.WriteLine(str.Substring(3));
+            
+            Console.WriteLine(str.Insert(3,"-"));
+            //insert
+            Console.WriteLine(str.Replace('t','T'));
+            //swap
+            ////////////////////////////////////////////////
+            string str_3 = " ";
+            string str_4 = null;
+            Console.WriteLine(string.IsNullOrWhiteSpace(str_3));
+            Console.WriteLine(string.IsNullOrWhiteSpace(str_4));
+            
+            ///////////////////////////////////////////////////
+            int? x = null;
+            Nullable<int> z = null;
+            //////////////////////////////////////////////////
+            
+            (int,int)kort=(1,2);
+            Func(kort.Item1, kort.Item2);
+           void Func(int l,int p)
+            {
+                int res = l + p;
+                Console.WriteLine($"Summa korteja = {res}");
+            }
+
+            (int, string, char) CreateCortage(string name_1)
+            {
+                int len = name_1.Length;
+                string xc = "My first name is " + name_1;
+                char q = (char)(name_1[0]);
+                return (len, xc, q);
+            }
+            var (one, two, three) = CreateCortage("Ilya");
+            Console.WriteLine(one);
+            Console.WriteLine(two);
+            Console.WriteLine(three);
+
+            void checked_t()
+            {
+                int vr = 2132312345;
+                int vs = 343499999;
+                int vc = unchecked(vr + vs);
+                Console.WriteLine(vc);
+            }
+            checked_t();
+            Console.Read();
+
+        }
+    }
+}
